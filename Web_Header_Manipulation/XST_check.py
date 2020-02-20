@@ -8,5 +8,8 @@ for verb in verbs:
     print(verb, req.status_code, req.reason)
 
     # There is a section of code to specifically test for XST
+    
     if verb == 'TRACE' and 'TRACE / HTTP/1.1' in req.text:
         print('Possible Cross Site Tracing vulnerability found')
+
+
